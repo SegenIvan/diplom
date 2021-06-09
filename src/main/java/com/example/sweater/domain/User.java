@@ -1,5 +1,7 @@
 package com.example.sweater.domain;
 
+import com.example.sweater.repos.UserRepo;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
@@ -13,6 +15,7 @@ import java.util.Set;
 @Entity
 @Table(name = "usr")
 public class User implements UserDetails {
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
@@ -30,7 +33,7 @@ public class User implements UserDetails {
     private String email;
     private String activationCode;
 
-    private String usr_should;
+    private String usr_should = "0";
 
     public String getUsr_should() {
         return usr_should;
